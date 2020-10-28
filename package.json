@@ -1,0 +1,10 @@
+{
+  "name": "ReverseTunneling",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@mdslab/wstun": "^1.0.11",
+    "reverse-wstunnel": "^1.2.2"
+  }
+}

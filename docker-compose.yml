@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  client:
+    build: ./
+    
+    volumes:
+      - ./:/app
+      - ./motd:/etc/motd
+      - ./sshd_config:/etc/ssh/sshd_config
+    command: /client start
