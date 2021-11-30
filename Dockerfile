@@ -13,6 +13,7 @@ RUN apt-get clean && \
 RUN mkdir /app
 WORKDIR /app
 COPY client.js /app/client.js
+COPY server.js /app/server.js
 COPY package.json /app/package.json
 RUN npm install
 COPY motd /etc/motd
@@ -22,4 +23,4 @@ COPY sshd_config /etc/ssh/sshd_config
 # EXPOSE 3000
 
 
-CMD ["node", "/app/client.js"] 
+CMD ["node", "/app/server.js"] 
