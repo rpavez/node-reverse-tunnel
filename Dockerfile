@@ -10,8 +10,16 @@ RUN apt-get clean && \
 # RUN cd /app && nexe client.js --build
 # RUN mv /app/client /client
 # RUN rm -f /app
-COPY ./client /client
-EXPOSE 22
-EXPOSE 3000
+RUN mkdir /app
+WORKDIR /app
+COPY client.js /app/client.js
+COPY package.json /app/package.json
+RUN npm install
+COPY motd /etc/motd
+COPY sshd_config /etc/ssh/sshd_config
 
-CMD    ["/usr/sbin/sshd", "-D"] 
+# EXPOSE 22
+# EXPOSE 3000
+
+
+CMD ["node", "/app/client.js"] 
